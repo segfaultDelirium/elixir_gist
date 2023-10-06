@@ -147,8 +147,10 @@ defmodule ElixirGist.Gists do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_saved_gist(attrs \\ %{}) do
-    %SavedGist{}
+  def create_saved_gist(user, attrs \\ %{}) do
+    # %SavedGist{}
+    user
+    |> Ecto.build_assoc(:saved_gist)
     |> SavedGist.changeset(attrs)
     |> Repo.insert()
   end

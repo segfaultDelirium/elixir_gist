@@ -49,8 +49,11 @@ defmodule ElixirGist.Comments do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_comment(attrs \\ %{}) do
-    %Comment{}
+  def create_comment(user, attrs \\ %{}) do
+    # {user, gist}
+
+    user
+    |> Ecto.build_assoc(:comment)
     |> Comment.changeset(attrs)
     |> Repo.insert()
   end
