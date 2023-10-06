@@ -4,7 +4,7 @@ defmodule ElixirGist.Repo.Migrations.CreateSavedGist do
   def change do
     create table(:saved_gist, primary_key: false) do
       add :id, :binary_id, primary_key: true
-      add :user_id, references(:user, on_delete: :delete_all, type: :binary_id)
+      add :user_id, references(:users, on_delete: :delete_all, type: :binary_id)
       add :gist_id, references(:gist, on_delete: :delete_all, type: :binary_id)
 
       timestamps()
