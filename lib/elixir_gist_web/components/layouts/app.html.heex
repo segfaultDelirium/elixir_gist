@@ -1,32 +1,41 @@
-<header class="px-4 sm:px-6 lg:px-8">
-  <div class="flex items-center justify-between border-b border-zinc-100 py-3 text-sm">
-    <div class="flex items-center gap-4">
-      <a href="/">
-        <img src={~p"/images/logo.svg"} width="36" />
-      </a>
-      <p class="bg-brand/5 text-brand rounded-full px-2 font-medium leading-6">
-        v<%= Application.spec(:phoenix, :vsn) %>
-      </p>
-    </div>
-    <div class="flex items-center gap-4 font-semibold leading-6 text-zinc-900">
-      <a href="https://twitter.com/elixirphoenix" class="hover:text-zinc-700">
-        @elixirphoenix
-      </a>
-      <a href="https://github.com/phoenixframework/phoenix" class="hover:text-zinc-700">
-        GitHub
-      </a>
+<header class="flex justify-between items-center px-6 py-3 bg-emDark">
+  <div class="flex relative">
+    <a href={~p"/"} class="flex">
+      <img src={~p"/images/gist-logo.svg"} class="h-8 w-auto" />
+      <span class="text-white font-brand font-bold text-3xl mr-6">
+        Gist
+      </span>
+    </a>
+    <!-- style="border: white 1px solid; background-color: black; height: 2.0em; " -->
+    <div>
+      <input
+        type="text"
+        class="rounded-lg focus:outline-none focus:border-emLavender focus:ring-0 px-3 py-1 bg-emDark-dark placeholder-emDark-light 
+          text-white font-brand font-regular text-sm mr-5 border-white"
+        placeholder="Search..."
+      />
+      <!-- style="font-weight: bold; font-size: 1.2rem; color: white;" -->
       <a
-        href="https://hexdocs.pm/phoenix/overview.html"
-        class="rounded-lg bg-zinc-100 px-2 py-1 hover:bg-zinc-200/80"
+        type="button"
+        class="text-white font-brand font-bold text-[1rem] mt-2 mr-2 hover:text-emDark-light"
+        href={~p"/gist/all"}
       >
-        Get Started <span aria-hidden="true">&rarr;</span>
+        All gists
       </a>
     </div>
+  </div>
+  <div class="relative ">
+    <button id="user-menu-button" class="flex items-center">
+      <img
+        src={~p"/images/profile_picture.jpg"}
+        class="w-8 h-8 w-auto rounded-full border-white border-solid border-2"
+        alt="profile image"
+      />
+      <img
+        src={~p"/images/expand_more.svg"}
+        class="h-6 w-auto"
+        style="filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(240deg) brightness(104%) contrast(101%);"
+      />
+    </button>
   </div>
 </header>
-<main class="px-4 py-20 sm:px-6 lg:px-8">
-  <div class="mx-auto max-w-2xl">
-    <.flash_group flash={@flash} />
-    <%= @inner_content %>
-  </div>
-</main>
