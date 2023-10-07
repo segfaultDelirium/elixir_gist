@@ -19,3 +19,12 @@
   font-style: normal;
 }
 
+.round-image-padding {
+  border-radius: 50%;
+  border: 1.5px solid white;
+  padding: 1px;
+}
+
+.img-down-arrow::after{
+  
+}
